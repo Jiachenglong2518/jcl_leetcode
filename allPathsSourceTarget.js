@@ -14,16 +14,15 @@
   const n = graph.length
 
   function backtrack(cur, path) {
-      if (cur === n - 1) {
-          ans.push(path.slice(0))
-          return
-      }
-
-      for (const g of graph[cur]) {
-          path.push(g)
-          backtrack(g, path)
-          path.pop()
-      }
+    if (cur === n - 1) {
+      ans.push(path.slice(0))
+      return
+    }
+    for (const g of graph[cur]) {
+      path.push(g)
+      backtrack(g, path)
+      path.pop()
+    }
   }
 
   backtrack(0, [0]);
