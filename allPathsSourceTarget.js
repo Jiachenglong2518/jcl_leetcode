@@ -30,6 +30,25 @@
   return ans
 };
 
+var allPathsSourceTarget2 = function(graph) {
+  let end = graph.length - 1, res = []
+
+  function dfs(node, path) {
+      for (let n of node) {
+          if (n === end) {
+              res.push([...path, n])
+          } else {
+              dfs(graph[n], [...path, n])
+          }
+      }
+  }
+  dfs(graph[0], [0])
+
+  return res
+};
+
+
+
 
 var a = [[1,2],[3],[3],[]];
 allPathsSourceTarget(a);
